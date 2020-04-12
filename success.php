@@ -1,9 +1,10 @@
 <?php
-session_start();?>
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SignUp</title>
+  <title>Order Success</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,63 +18,36 @@ session_start();?>
 <div class="page">
   <div class="card sticky-top">
     <div class="row">      
-      <div class="col-6">
+      <div class="col">
         <a href="homepage.php">
           <img id = "logo1" src="Images/Logo/logo.jpg" alt="Logo">
         </a>
       </div>
-      <div class="col-6 heading">
-        <h3 class="a">Sign Up</h3>
-      </div>
     </div>
   </div>
 
-  <div id="container-fluid" class="signup_home">
-    <div class="row text-center">
-      <div class="col-sm-6"></div>
-      <div class="col-sm-6">
-        <form action="signup.php" method="post" class="signup">
-          <h1 class="a">Hey Stranger!!</h1>
-          <br>
-          <div class="row">
-            <div class="col">
-              <input type="text" placeholder="Enter First Name" name="fname" class="form-control" required>
-            </div>
-            <div class="col">
-              <input type="text" placeholder="Enter Last Name" name="lname" class="form-control" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <input type="email" placeholder="Enter Email" name="email" class="form-control" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <input type="password" placeholder="Enter Password" name="psw" class="form-control" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <input type="password" placeholder="Confirm Password" name="cnf_psw" class="form-control" required>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-danger">Sign Up</button>
-		  <?php if(isset($_SESSION['isRegister'])) { ?>
-		  <?php if($_SESSION['isRegister']=="true") { ?>
-          <p class="b">Successfully registered! <a href="sign_in.php">Sign In</a></p>
-		  <?php }else if($_SESSION['isRegister']=="false"){ ?>
-		  <p class="b">Email already registered! <a href="sign_in.php">Sign In</a></p>
-		  <?php }} else { ?>
-		  <p class="b">Already have an account? <a href="sign_in.php">Sign In</a></p>
-		  <?php } ?>
-        </form>
+  <div id="container-fluid" class="success_home">
+    <div class="row">
+      <div class="col-sm-6 text-center">
+        <i class="fa fa-check-circle"></i>
+        <h3 class="a">Yay! Your Order #<?php echo $_SESSION['orderId'] ?> has been placed</h3>
       </div>
-    </div> 
+    </div>
+    <div class="row">
+	<?php if(isset($_SESSION['sessionId'])) { ?>
+      <div class="col-sm-6 text-center">
+        <a href="after_login.php"><span class="arrow"></span>Return To Homepage</a>
+      </div>
+	<?php } else{ ?>
+	<div class="col-sm-6 text-center">
+        <a href="homepage.php"><span class="arrow"></span>Return To Homepage</a>
+      </div>
+	<?php } ?>  
+    </div>
   </div>
 
   <div class="jumbotron">
-    <div id="container-fluid" class="about">
+    <div id="container-fluid">
       <div class="row">
         <div class="col-sm-3"></div>
         <div class="col-sm-3">
