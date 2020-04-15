@@ -26,7 +26,13 @@ session_start();
         </a>
       </div>
       <div class="col-6 text-right">
+	  <?php 
+		if(isset($_SESSION['sessionId'])) {
+	  ?>
         <button type="button" class="btn login" disabled><?php echo $_SESSION['sessionId'] ?></button>
+		<?php } else {?>
+		<button type="button" class="btn login" onclick="location.href='sign_in.php'">Sign In</button>
+		<?php } ?>
         <button type="button" class="btn btn-danger login" onclick="location.href='logout.php'">Log Out</button>
       </div>
       <div class="col-1 cart_icon">

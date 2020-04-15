@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +25,14 @@
         </a>
       </div>
       <div class="col-6 text-right">
-        <button type="button" class="btn login" onclick="location.href='sign_in.php'">Sign In</button>
-        <button type="button" class="btn btn-danger login" onclick="location.href='sign_up.php'">Sign Up</button>
+        <?php 
+	if(isset($_SESSION['sessionId'])) {?>
+	<button type="button" class="btn login" disabled><?php echo $_SESSION['sessionId'] ?></button>
+	<button type="button" class="btn btn-danger login" onclick="location.href='logout.php'">Sign Out</button>
+<?php } else {?>
+	<button type="button" class="btn login" onclick="location.href='sign_in.php'">Sign In</button>
+    <button type="button" class="btn btn-danger login" onclick="location.href='sign_up.php'">Sign Up</button>
+<?php } ?>
       </div>
       <div class="col-1 cart_icon">
         <a href="order_checkout.php">
@@ -144,6 +153,9 @@
           <a href="terms_of_use.php" target="_blank">Terms of Service</a>
           &nbsp&nbsp&nbsp
           <a href="privacy.php" target="_blank">Privacy</a>
+        </div>
+        <div class="col text-right">
+          <a href="admin.php" target="_blank">Admin Login</a>
         </div>
       </div>
     </div>

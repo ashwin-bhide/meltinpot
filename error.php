@@ -32,10 +32,6 @@
     </div>
     <div class="row">
       <div class="col text-center">
-        <form class="homepage_cuisine" action="italian.php">
-          <input type="text" name="search" placeholder="Enter a cuisine..">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
         <a href="homepage.php"><span class="arrow"></span>Return To Homepage</a>
       </div>
     </div>
@@ -73,6 +69,9 @@
           <a href="terms_of_use.php" target="_blank">Terms of Service</a>
           &nbsp&nbsp&nbsp
           <a href="privacy.php" target="_blank">Privacy</a>
+        </div>
+        <div class="col text-right">
+          <a href="admin.php" target="_blank">Admin Login</a>
         </div>
       </div>
     </div>

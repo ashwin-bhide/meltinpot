@@ -29,14 +29,24 @@ else if(isset($_POST['t_submit']))
 <div class="page">
   <div class="card sticky-top">
     <div class="row">      
-      <div class="col-10">
+      <div class="col-5">
         <a href="homepage.php">
           <img id = "logo1" src="Images/Logo/logo.jpg" alt="Logo">
         </a>
       </div>
-      <div class="col-2">
+      <div class="col-6 text-right">
+        <?php 
+	if(isset($_SESSION['sessionId'])) {?>
+	<button type="button" class="btn login" disabled><?php echo $_SESSION['sessionId'] ?></button>
+	<button type="button" class="btn btn-danger login" onclick="location.href='logout.php'">Sign Out</button>
+<?php } else {?>
+	<button type="button" class="btn login" onclick="location.href='sign_in.php'">Sign In</button>
+    <button type="button" class="btn btn-danger login" onclick="location.href='sign_up.php'">Sign Up</button>
+<?php } ?>
+      </div>
+      <div class="col-1 cart_icon">
         <a href="order_checkout.php">
-          <img src="Images/Logo/basket.jpg" class="rounded-circle" alt="Cart" width="35" height="35" align="right">
+          <img src="Images/Logo/basket.jpg" class="rounded-circle" alt="Cart" width="35" height="35">
         </a>
       </div>
     </div>
@@ -54,17 +64,6 @@ else if(isset($_POST['t_submit']))
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <ul class="navbar-nav">
-                <li class="nav-item">
-                  <h6 class="a">Cuisine</h6>
-                  <select class="custom-select select_cuisine" id="change_cuisine">
-                    <option value="" selected disabled hidden>Choose here</option>
-                    <option value="italian">Italian</option>
-                    <option value="mexican">Mexican</option>
-                    <option value="chinese">Chinese</option>
-                    <option value="indian">Indian</option>
-                    <option value="dessert">Dessert</option>
-                  </select>
-                </li>
                 <li class="nav-item">
                   <h6 class="a">Price</h6>
                   <input class="radio_cuisine" type="radio" id="p_low_m" name="price" value="p_low">
@@ -97,20 +96,6 @@ else if(isset($_POST['t_submit']))
           <div class="row cuisine_filter_header">
             <h4 class="a">Filters</h4>
           </div>
-          <div class="row">
-            <h6 class="a">Cuisine</h6>
-          </div>
-          <div class="row cuisine_row">
-            <select class="custom-select select_cuisine" id="change_cuisine">
-              <option value="" selected disabled hidden>Choose here</option>
-              <option value="italian">Italian</option>
-              <option value="mexican">Mexican</option>
-              <option value="chinese">Chinese</option>
-              <option value="indian">Indian</option>
-              <option value="dessert">Dessert</option>
-            </select>
-          </div>
-          <br>
           <div class="row">
             <h6 class="a">Price</h6>
           </div>
@@ -241,7 +226,7 @@ else if(isset($_POST['t_submit']))
             <div class="row">
               <p class="a">Classic Italian dessert made with mascarpone, lady fingers and espresso coffee</p>
             </div>
-            <form class="tiramisu_count" onchange="location.href='#">
+            <form action="" method = "post" class="tiramisu_count" onchange="location.href='#">
               <div class="row cuisine_row">
                 <div class="col-3">
                   <input name="t_price" type="text" id="item_price" value="$4.99" disabled />
@@ -307,6 +292,9 @@ else if(isset($_POST['t_submit']))
           <a href="terms_of_use.php" target="_blank">Terms of Service</a>
           &nbsp&nbsp&nbsp
           <a href="privacy.php" target="_blank">Privacy</a>
+        </div>
+        <div class="col text-right">
+          <a href="admin.php" target="_blank">Admin Login</a>
         </div>
       </div>
     </div>

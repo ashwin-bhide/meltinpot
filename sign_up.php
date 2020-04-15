@@ -105,6 +105,9 @@ session_start();?>
           &nbsp&nbsp&nbsp
           <a href="privacy.php" target="_blank">Privacy</a>
         </div>
+        <div class="col text-right">
+          <a href="admin.php" target="_blank">Admin Login</a>
+        </div>
       </div>
     </div>
   </div>

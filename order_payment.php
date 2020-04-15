@@ -22,10 +22,20 @@ if(isset($_POST['confirm_order'])){
 <div class="page">
   <div class="card sticky-top">
     <div class="row">      
-      <div class="col">
+      <div class="col-5">
         <a href="homepage.php">
           <img id = "logo1" src="Images/Logo/logo.jpg" alt="Logo">
         </a>
+      </div>
+      <div class="col-6 text-right">
+        <?php 
+	if(isset($_SESSION['sessionId'])) {?>
+	<button type="button" class="btn login" disabled><?php echo $_SESSION['sessionId'] ?></button>
+	<button type="button" class="btn btn-danger login" onclick="location.href='logout.php'">Sign Out</button>
+<?php } else {?>
+	<button type="button" class="btn login" onclick="location.href='sign_in.php'">Sign In</button>
+    <button type="button" class="btn btn-danger login" onclick="location.href='sign_up.php'">Sign Up</button>
+<?php } ?>
       </div>
     </div>
   </div>
@@ -65,15 +75,6 @@ if(isset($_POST['confirm_order'])){
         </table>
       </div>
       <div class="col-sm-8 order-sm-1 checkout_col">
-        <div class="row">
-          <div class="row checkout_row">   
-            <input class="radio_payment" type="radio" id="online" name="payment" value="delivery" checked>
-            <label for="online">Card</label>
-            <input class="radio_payment" type="radio" id="cod" name="payment" value="pickup">
-            <label for="cod">Cash on Delivery</label>
-          </div>
-        </div>
-        <br>
         <div class="row checkout_row_mobile">
           <form action="" method="post" class="payment">
             <h5 class="a">Payment Information</h5>
@@ -187,6 +188,9 @@ if(isset($_POST['confirm_order'])){
           <a href="terms_of_use.php" target="_blank">Terms of Service</a>
           &nbsp&nbsp&nbsp
           <a href="privacy.php" target="_blank">Privacy</a>
+        </div>
+        <div class="col text-right">
+          <a href="admin.php" target="_blank">Admin Login</a>
         </div>
       </div>
     </div>
