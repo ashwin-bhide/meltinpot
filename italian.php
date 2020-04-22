@@ -14,7 +14,7 @@ else if(isset($_POST['spaghetti_cart']))
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Search Cuisine</title>
+  <title>Italian</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -46,7 +46,7 @@ else if(isset($_POST['spaghetti_cart']))
       </div>
       <div class="col-1 cart_icon">
         <a href="order_checkout.php">
-          <img src="Images/Logo/basket.jpg" class="rounded-circle" alt="Cart" width="35" height="35">
+          <img src="Images/Logo/basket.jpg" class="img_cart" alt="Cart" data-toggle="modal" data-target="#cart_modal">
         </a>
       </div>
     </div>
@@ -194,7 +194,7 @@ else if(isset($_POST['spaghetti_cart']))
               </div>
               <div class="row cuisine_row">
                 <div class="col-4">
-                  <select name = "pasta_qty" class="custom-select select_qty" id="quantity">
+                  <select name="pasta_qty" class="custom-select select_qty" id="quantity">
                     <option value="1" selected>1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -203,8 +203,17 @@ else if(isset($_POST['spaghetti_cart']))
                   </select>
                 </div>
                 <div class="col-8">
-                  <button name = "pasta_cart" type="submit" class="button_cart">Add to Cart</button>
+                  <button name="pasta_cart" type="submit" class="button_cart">Add to Cart</button>
                 </div>
+              </div>
+              <div class="row">
+                <div class="col-4"></div>
+				<?php 
+						if(isset($_POST['pasta_qty'])) {?>
+                <div class="col-8">
+                  <p class="d">Yay!! <?php echo $_POST['pasta_qty']?> item(s) added to cart</p>
+                </div>
+				<?php } ?>
               </div>
             </form>
           </div>
@@ -271,7 +280,7 @@ else if(isset($_POST['spaghetti_cart']))
               </div>
               <div class="row cuisine_row">
                 <div class="col-4">
-                  <select name = "spaghetti_qty" class="custom-select select_qty" id="quantity">
+                  <select name="spaghetti_qty" class="custom-select select_qty" id="quantity">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -280,8 +289,17 @@ else if(isset($_POST['spaghetti_cart']))
                   </select>
                 </div>
                 <div class="col-8">
-                  <button name = "spaghetti_cart" type = "submit" class="button_cart">Add to Cart</button>
+                  <button name="spaghetti_cart" type="submit" class="button_cart">Add to Cart</button>
                 </div>
+              </div>
+              <div class="row">
+                <div class="col-4"></div>
+                <?php 
+						if(isset($_POST['spaghetti_qty'])) {?>
+                <div class="col-8">
+                  <p class="d">Yay!! <?php echo $_POST['spaghetti_qty']?> item(s) added to cart</p>
+                </div>
+				<?php } ?>
               </div>
             </form>
           </div>
@@ -297,7 +315,7 @@ else if(isset($_POST['spaghetti_cart']))
         <div class="col-sm-3">
           <h5>Get to Know Us</h5>
           <br>
-          <p><a href="about_us.php.php" target="_blank">About Us</a></p>
+          <p><a href="about_us.php" target="_blank">About Us</a></p>
           <p><a href="stories.php" target="_blank">MeltinPot Stories</a></p>
           <p><a href="blog.php" target="_blank">Blog</a></p>
           <p><a href="news.php" target="_blank">News</a></p>
@@ -332,6 +350,28 @@ else if(isset($_POST['spaghetti_cart']))
 
   <div class="footer">
     &copyDeveloped by Team 07
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="cart_modal">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="a">Cart Message</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p class="b">Your cart seems to be empty!!</p>
+        <p class="b">Please add some dishes to continue.</p> 
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
 

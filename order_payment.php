@@ -82,16 +82,16 @@ if(isset($_POST['confirm_order'])){
               <label for="card_number">Card Number</label>
               <div class="row">
                 <div class="col">
-                  <input type="num" name="card_number" class="form-control" maxlength="4" required>
+                  <input type="number" name="card_number" class="form-control" maxlength="4" required>
                 </div>
                 <div class="col">
-                  <input type="num" name="card_number" class="form-control" maxlength="4" required>
+                  <input type="number" name="card_number" class="form-control" maxlength="4" required>
                 </div>
                 <div class="col">
-                  <input type="num" name="card_number" class="form-control" maxlength="4" required>
+                  <input type="number" name="card_number" class="form-control" maxlength="4" required>
                 </div>
                 <div class="col">
-                  <input type="num" name="card_number" class="form-control" maxlength="4" required>
+                  <input type="number" name="card_number" class="form-control" maxlength="4" required>
                 </div>
               </div>
             </fieldset>
@@ -145,7 +145,7 @@ if(isset($_POST['confirm_order'])){
               <label for="card_code">Security Code</label>
               <div class="row">
                 <div class="col">
-                  <input type="num" name="card_cvv" class="form-control" maxlength="4" required>
+                  <input type="number" name="card_cvv" class="form-control" maxlength="4" required>
                 </div>
               </div>
             </fieldset>
@@ -163,7 +163,7 @@ if(isset($_POST['confirm_order'])){
         <div class="col-sm-3">
           <h5>Get to Know Us</h5>
           <br>
-          <p><a href="about_us.php.php" target="_blank">About Us</a></p>
+          <p><a href="about_us.php" target="_blank">About Us</a></p>
           <p><a href="stories.php" target="_blank">MeltinPot Stories</a></p>
           <p><a href="blog.php" target="_blank">Blog</a></p>
           <p><a href="news.php" target="_blank">News</a></p>
