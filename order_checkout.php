@@ -55,6 +55,15 @@ if(isset($_POST['payment_submit']))
     <div class="row">
       <div class="col-sm-4 order-sm-12 cart_col">
         <h5><span class="text-muted">Your cart</span></h5>
+		<?php if(!isset($_SESSION['products'])){ ?>
+		<br>
+		    <div class="empty_cart">
+          <h6 class="a">Uh Oh!! Your cart is empty.</h6>
+          <a href="homepage.php"><span class="arrow"></span>Return To Homepage</a>
+        </div>
+		  <?php } else {
+		  $total = 0; foreach($_SESSION['products'] AS $product){ $total+=$product['quantity']*$product['price'];
+		  ?>
         <table>
           <thead>
             <tr>
@@ -64,25 +73,19 @@ if(isset($_POST['payment_submit']))
             </tr>
           </thead>
           <tbody>
-		  <?php if(isset($_SESSION['products'])){
-		  $total = 0; foreach($_SESSION['products'] AS $product){ $total+=$product['quantity']*$product['price']; ?>
             <tr>
               <td><span class="text-muted"><?php echo $product['quantity'] ?></span></td>
               <td><span class="text-muted"><?php echo $product['id'] ?></span></td>
               <td><span class="text-muted"><?php echo $product['price'] ?></span></td>
             </tr>
             <tr>
-			<?php } ?>
               <td></td>
               <td class="right-align bold">Total</td>
               <td class="right-align bold"><?php echo '$' .$total ?></td>
             </tr>
-		  <?php $_SESSION['total'] = $total; } else { ?>
+		  <?php $_SESSION['total'] = $total; }} ?>
           </tbody>
         </table>
-		<h6 class="b"><span class="text-muted">Damn!! Your cart is empty.</span></h5>
-		  <a href="homepage.php"><span class="arrow"></span>Return To Homepage</a>
-		  <?php } ?>
       </div>
       <div class="col-sm-8 order-sm-1 checkout_col">
         <div class="row checkout_row_mobile">
